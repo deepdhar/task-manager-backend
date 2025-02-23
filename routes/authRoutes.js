@@ -133,7 +133,7 @@ router.post('/reset-password', async (req, res) => {
     const user = await User.findOne({ 
       email,
       resetCode: code,
-      resetTokenExpiration: { $gt: Date.now() }
+      resetCodeExpiration: { $gt: Date.now() }
     });
 
     if (!user) {
